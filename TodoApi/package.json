@@ -7,6 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/caffranksereia/ProjectTodo.git"
@@ -24,6 +29,11 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "husky": "^6.0.0"
+    "husky": "^6.0.0",
+    "pretty-quick": "^3.1.0"
+  },
+  "lint-staged":{
+    "**/*.{.js,jsx,ts,tsx}":[
+    "npm eslint","npm prettier --write","npm pre --watchAll=false --findRelatedTests --bail"]
   }
 }
