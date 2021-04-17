@@ -34,6 +34,7 @@ app.get('/All',(req,res)=>{
     const data = db.get('Todo').value()
 
     res.json(data)
+    
 })
 app.get('/get/:id',(req,res)=>{
 
