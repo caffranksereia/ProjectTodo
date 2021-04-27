@@ -1,7 +1,8 @@
 <template>
   <div class="listTodo">
-    <AddTodo/>
+    <AddTodo />
     <ul v-for="todos of listtodos" :key="todos.id">
+      <CardTodo  v-for="todos of listtodos" :key="todos.id" :todoCard ="listttodos"/>
         <li> {{todos.Titulo}} </li>
         <li>{{todos.Todo}}</li>
         <li>{{todos.doneTodo}}</li>
@@ -25,22 +26,16 @@ import TodoApi from '@/Services/TodoApi'
 import EditTodo from '@/components/EditTodo.vue'
 import DeleteTodo from '@/components/DeleteTodo.vue'
 import AddTodo from '@/components/AddTodo'
+import CardTodo from '@/components/CardTodo'
 export default {
   name: 'ListTodo',
   
   components:{
     EditTodo,
     DeleteTodo,
-    AddTodo
+    AddTodo,
+    CardTodo
   },
-  props: {
-    titulo:String,
-    todo:String,
-    donneTodo:Boolean
-  },
-
-  
-
   data(){
     return{
       todos:{
@@ -51,7 +46,7 @@ export default {
       },
      listtodos: [],
      isEdit:false,
-     isDelete:false,
+     isDelete:false
     }
   },
   methods:{
